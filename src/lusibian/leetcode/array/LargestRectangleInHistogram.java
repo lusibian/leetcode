@@ -115,13 +115,11 @@ public class LargestRectangleInHistogram {
             }
             heightStack.push(i);
         }
-        int length = 0;
         while (!heightStack.empty()) {
             int top = heightStack.pop();
+            int length = heights.length;
             if (!heightStack.empty()) {
-                length += top - heightStack.peek();
-            } else {
-                length += top + 1;
+                length = heights.length - 1 - heightStack.peek();
             }
             int rectangleArea = heights[top] * length;
             if (rectangleArea > maxRectangleArea) {
