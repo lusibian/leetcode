@@ -67,26 +67,26 @@ public class LargestRectangleInHistogram {
             return 0;
         }
         int maxRectangleArea = 0;
-        int[] leftLargerIdx = new int[heights.length];
-        int[] rightLargerIdx = new int[heights.length];
+        int[] leftBoundaryIdx = new int[heights.length];
+        int[] rightBoundaryIdx = new int[heights.length];
         for (int i = 0; i < heights.length; i++) {
-            leftLargerIdx[i] = i;
+            leftBoundaryIdx[i] = i;
             int p = i - 1;
             while (p >= 0 && heights[p] >= heights[i]) {
-                leftLargerIdx[i] = leftLargerIdx[p];
-                p = leftLargerIdx[p] - 1;
+                leftBoundaryIdx[i] = leftBoundaryIdx[p];
+                p = leftBoundaryIdx[p] - 1;
             }
         }
         for (int i = heights.length - 1; i >= 0; i--) {
-            rightLargerIdx[i] = i;
+            rightBoundaryIdx[i] = i;
             int p = i + 1;
             while (p < heights.length && heights[p] >= heights[i]) {
-                rightLargerIdx[i] = rightLargerIdx[p];
-                p = rightLargerIdx[p] + 1;
+                rightBoundaryIdx[i] = rightBoundaryIdx[p];
+                p = rightBoundaryIdx[p] + 1;
             }
         }
         for (int i = 0; i < heights.length; i++) {
-            int rectangleArea = heights[i] * (rightLargerIdx[i] - leftLargerIdx[i] + 1);
+            int rectangleArea = heights[i] * (rightBoundaryIdx[i] - leftBoundaryIdx[i] + 1);
             if (rectangleArea > maxRectangleArea) {
                 maxRectangleArea = rectangleArea;
             }
