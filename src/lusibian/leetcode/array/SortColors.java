@@ -1,6 +1,13 @@
 package lusibian.leetcode.array;
 
 public class SortColors {
+    public static void main(String[] args) {
+        int[] nums = new int[]{1,2,0};
+        SortColors sortColors = new SortColors();
+        sortColors.sortColors2(nums);
+        System.out.println(nums);
+    }
+
     // count
     public void sortColors1(int[] nums) {
         int[] counts = new int[3];
@@ -31,6 +38,7 @@ public class SortColors {
                 nums[i] = nums[twoPointer];
                 nums[twoPointer] = 2;
                 twoPointer--;
+                i--;
             }
         }
     }
