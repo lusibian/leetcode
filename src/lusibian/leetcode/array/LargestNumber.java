@@ -34,11 +34,7 @@ public class LargestNumber {
         public int compare(String a, String b) {
             String str1 = a + b;
             String str2 = b + a;
-            if (str1.compareTo(str2) <= 0) {
-                return 1;
-            } else {
-                return -1;
-            }
+            return str2.compareTo(str1);
         }
     }
 }
