@@ -1,4 +1,4 @@
-package lusibian.leetcode.array;
+package lusibian.leetcode.sort;
 
 public class CountOfRangeSum {
     public static void main(String[] args) {
