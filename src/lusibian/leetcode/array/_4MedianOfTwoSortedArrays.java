@@ -1,6 +1,14 @@
 package lusibian.leetcode.array;
 
 public class _4MedianOfTwoSortedArrays {
+
+    public static void main(String[] args) {
+        int[] nums1 = new int[]{1};
+        int[] nums2 = new int[]{2, 3};
+        _4MedianOfTwoSortedArrays temp = new _4MedianOfTwoSortedArrays();
+        System.out.println(temp.findMedianSortedArrays(nums1, nums2));
+    }
+
     // 二分法
     // nums1、nums2的长度分别为m、n，m <= n
     // nums1、nums2中分别存在下标i、j，i + j = (m + n + 1) / 2
