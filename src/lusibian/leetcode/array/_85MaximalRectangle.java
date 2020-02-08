@@ -2,62 +2,34 @@ package lusibian.leetcode.array;
 
 import java.util.Stack;
 
-public class LargestRectangleInHistogram {
-
-    public static void main(String[] args) {
-        int[] heights = new int[]{5, 4, 1, 2};
-        LargestRectangleInHistogram largestRectangleInHistogram = new LargestRectangleInHistogram();
-        System.out.println(largestRectangleInHistogram.largestRectangleArea4(heights));
-    }
-
-    // 分治法，平均时间复杂度O(n*lg(n))，最坏时间复杂度O(n^2)，空间复杂度O(1)
-    public int largestRectangleArea1(int[] heights) {
-        if (heights == null || heights.length == 0) {
+public class _85MaximalRectangle {
+    // 转换后使用84方法，直方图中最大矩形的解法
+    // 时间复杂度O(nm)，空间复杂度O(m)
+    public int maximalRectangle(char[][] matrix) {
+        if(matrix == null || matrix.length == 0 || matrix[0].length == 0) {
             return 0;
         }
-        return largestRectangleArea1(heights, 0, heights.length - 1);
+        int maxArea = 0;
+        int n = matrix.length;
+        int m = matrix[0].length;
+        int[] assistArray = new int[m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (matrix[i][j] == '1') {
+                    assistArray[j] += 1;
+                } else {
+                    assistArray[j] = 0;
+                }
+            }
+            int assistMax = largestRectangleArea3(assistArray);
+            if (assistMax > maxArea) {
+                maxArea = assistMax;
+            }
+        }
+        return maxArea;
     }
 
-    private int largestRectangleArea1(int[] heights, int begin, int end) {
-        if (begin > end) {
-            return 0;
-        }
-        int minHeightIdx = end;
-        for (int i = begin; i < end; i++) {
-            if (heights[minHeightIdx] > heights[i]) {
-                minHeightIdx = i;
-            }
-        }
-        return Math.max(heights[minHeightIdx] * (end - begin + 1),
-                Math.max(largestRectangleArea1(heights, begin, minHeightIdx - 1),
-                        largestRectangleArea1(heights, minHeightIdx + 1, end)));
-    }
-
-    //暴力法，时间复杂度O(n^2)，空间复杂度O(1)
-    public int largestRectangleArea2(int[] heights) {
-        if (heights == null || heights.length == 0) {
-            return 0;
-        }
-        int maxRectangleArea = 0;
-        for (int i = 0; i < heights.length; i++) {
-            int length = 1;
-            int left = i - 1;
-            while (left >= 0 && heights[left] >= heights[i]) {
-                length++;
-                left--;
-            }
-            int right = i + 1;
-            while (right < heights.length && heights[right] >= heights[i]) {
-                length++;
-                right++;
-            }
-            int rectangleArea = length * heights[i];
-            if (rectangleArea > maxRectangleArea) {
-                maxRectangleArea = rectangleArea;
-            }
-        }
-        return maxRectangleArea;
-    }
+    // 下面复用84题代码，直方图中最大矩形的解法
 
     // 数组法，即动态规划，记录比较结果，优化比较，时间复杂度O(n)，空间复杂度O(n)
     // 比较时跳过已比较过的数，如果某个数a，后面已经有一个数b比a小，则从b往后找时，比较都会跳过a
