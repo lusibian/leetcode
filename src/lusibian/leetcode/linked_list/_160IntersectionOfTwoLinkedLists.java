@@ -19,7 +19,7 @@ public class _160IntersectionOfTwoLinkedLists {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         ListNode pointer1 = headA, pointer2 = headB;
         int length1 = 0, length2 = 0;
-        while(pointer1 != null) {
+        while (pointer1 != null) {
             length1++;
             pointer1 = pointer1.next;
         }
