@@ -29,8 +29,8 @@ public class _328OddEvenLinkedList {
             evenEnd = pointer;
             pointer = pointer.next;
         }
-        oddEnd.next = evenHead;
-        evenEnd.next = null;
+        oddEnd.next = evenHead; // 奇偶链表对接
+        evenEnd.next = null;    // 修改队尾的next
         return head;
     }
 }
