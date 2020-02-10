@@ -46,7 +46,7 @@ public class _19RemoveNthNodeFromEndOfList {
             pointerRight = pointerRight.next;
             step--;
         }
-        if(pointerRight == null) {  // 说明倒数第n个节点是头节点
+        if (pointerRight == null) {  // 说明倒数第n个节点是头节点
             return head.next;
         }
         while (pointerRight.next != null) {
