@@ -6,6 +6,11 @@ public class _8StringToInteger {
         _8StringToInteger temp = new _8StringToInteger();
         System.out.println(temp.myAtoi(s));
     }
+
+    // 考虑的情况：
+    // 1. 数字前面的空格
+    // 2. 数字前面可能有正负号
+    // 3. 数字超过int范围
     public int myAtoi(String str) {
         Long num = 0L;
         char[] chars = str.toCharArray();
