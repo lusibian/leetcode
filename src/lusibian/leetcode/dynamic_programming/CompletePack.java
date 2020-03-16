@@ -9,7 +9,7 @@ public class CompletePack {
         int packSize = sc.nextInt();
         int[] weights = new int[numLine];
         int[] values = new int[numLine];
-        for(int i = 0; i < numLine; i++){
+        for (int i = 0; i < numLine; i++) {
             weights[i] = sc.nextInt();
             values[i] = sc.nextInt();
         }

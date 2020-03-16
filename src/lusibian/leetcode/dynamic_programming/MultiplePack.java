@@ -10,7 +10,7 @@ public class MultiplePack {
         int[] weights = new int[numLine];
         int[] values = new int[numLine];
         int[] itemNums = new int[numLine];
-        for(int i = 0; i < numLine; i++){
+        for (int i = 0; i < numLine; i++) {
             weights[i] = sc.nextInt();
             values[i] = sc.nextInt();
             itemNums[i] = sc.nextInt();
@@ -37,7 +37,7 @@ public class MultiplePack {
     // 3 5 1
     // 1 2 3
     // 正确结果为9，算法输出7
-    public static int multiplePack1(int[] weights, int[] values, int[] itemNums,int packSize) {
+    public static int multiplePack1(int[] weights, int[] values, int[] itemNums, int packSize) {
         int[] dp = new int[packSize + 1];
         int[] numInPackForCurrentItem = new int[packSize + 1];
         for (int i = 0; i < weights.length; i++) {
@@ -61,7 +61,7 @@ public class MultiplePack {
     // 记item的总数为t
     // t为所有物品的数量之和，记l(k)为物品k的数量，t = ∑l(k)，k属于1到n
     // 时间复杂度O(mt)，空间复杂度O(m)
-    public static int multiplePack2(int[] weights, int[] values, int[] itemNums,int packSize) {
+    public static int multiplePack2(int[] weights, int[] values, int[] itemNums, int packSize) {
         int[] dp = new int[packSize + 1];
         for (int i = 0; i < weights.length; i++) {
             for (int k = 0; k < itemNums[i]; k++) {
@@ -86,7 +86,7 @@ public class MultiplePack {
     // 对数字n，有1 + 2 + 4 + ... + 2^k + rest = n
     // 集合{1、2、4、8...2^k、rest}，对任意数字x属于范围1到n，存在子集，使子集中的数字和等于x
     // 数学证明略
-    public static int multiplePack3(int[] weights, int[] values, int[] itemNums,int packSize) {
+    public static int multiplePack3(int[] weights, int[] values, int[] itemNums, int packSize) {
         int[] dp = new int[packSize + 1];
         for (int i = 0; i < weights.length; i++) {
             int currentItemSize = 1;
@@ -125,7 +125,7 @@ public class MultiplePack {
     //
     // 记背包大小为m，物品种类为n
     // 时间复杂度O(mn)，空间复杂度O(m)
-    public static int multiplePack4(int[] weights, int[] values, int[] itemNums,int packSize) {
+    public static int multiplePack4(int[] weights, int[] values, int[] itemNums, int packSize) {
         int[] dp = new int[packSize + 1];
         int[] tempDpArray = new int[packSize + 1];
         Deque<Integer> idxQueue = new LinkedList<>();
@@ -139,8 +139,8 @@ public class MultiplePack {
                     int valueForIdx = dp[reminder + weights[i] * j] - values[i] * j;
                     while (!idxQueue.isEmpty()) {
                         int last = idxQueue.getLast();
-                        int valueForLast =  dp[reminder + weights[i] * last] - values[i] * last;
-                        if (valueForLast < valueForIdx){
+                        int valueForLast = dp[reminder + weights[i] * last] - values[i] * last;
+                        if (valueForLast < valueForIdx) {
                             idxQueue.removeLast();
                         } else {
                             break;
