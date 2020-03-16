@@ -23,6 +23,8 @@ public class MixPack {
 
     // 混合背包
     // 对不同类型物品，使用对应类型背包的解法
+    // 记背包大小为m，物品种类为n
+    // 时间复杂度O(mn)，空间复杂度O(m)
     public static int mixPack(int[] weights, int[] values, int[] itemNums, int packSize) {
         int[] dp = new int[packSize + 1];
         int[] tempDpArray = new int[packSize + 1];
