@@ -24,6 +24,9 @@ public class GroupPack {
 
     // 分组的01背包
     // 可以在每个组内，去掉weight更大，但value更小的物品，进行剪枝，代码参考完全背包里的相同优化
+    //
+    // 记背包重量大小为m，物品数量为n
+    // 时间复杂度O(mn)，空间复杂度O(m)
     public static int groupPack(int[][] weights, int[][] values, int packSize) {
         int[] dp = new int[packSize + 1];
         for (int i = 0; i < weights.length; i++) {
