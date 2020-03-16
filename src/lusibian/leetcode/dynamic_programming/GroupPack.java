@@ -23,6 +23,7 @@ public class GroupPack {
     }
 
     // 分组的01背包
+    // 可以在每个组内，去掉weight更大，但value更小的物品，进行剪枝，代码参考完全背包里的相同优化
     public static int groupPack(int[][] weights, int[][] values, int packSize) {
         int[] dp = new int[packSize + 1];
         for (int i = 0; i < weights.length; i++) {
@@ -36,4 +37,5 @@ public class GroupPack {
         }
         return dp[packSize];
     }
+
 }
