@@ -13,7 +13,7 @@ public class LongestCommonSubstring {
     // 记录最长公共后缀，是因为子串必须是连续的，状态转移时，前序状态一定是已找到的公共后缀
     // 记c1[i]为字符串1的第i个字符，c2[j]为字符串2的第j个字符
     // 记h[i, j]为 c1[i]是否等于c2[j]，相等为1，不等为0
-    // 状态转移方程：dp[i, j] = dp[i-1, j-1] + h[i, j]
+    // 状态转移方程：dp[i, j] = h[i, j] * (dp[i-1, j-1] + h[i, j])
     // 时间复杂度O(mn)，空间复杂度O(m)或O(n)
     // 可以选择更短的那个字符串作为dp数组长度，空间复杂度O(min(m,n))
     public static int longestCommonSubstring(String text1, String text2) {
