@@ -2,7 +2,7 @@ package lusibian.leetcode.dynamic_programming;
 
 public class _1143LongestCommonSubsequence {
     // 最长公共子序列问题，LCS问题
-    // 子问题拆分：求字符串1的长度为i的前缀字串与字符串2的长度为j的前缀字串的最长公共子序列
+    // 子问题拆分：求字符串1的长度为i的前缀子串与字符串2的长度为j的前缀子串的最长公共子序列
     // 记c1[i]为字符串1的第i个字符，c2[j]为字符串2的第j个字符
     // 记h[i, j]为 c1[i]是否等于c2[j]，相等为1，不等为0
     // 状态转移方程：dp[i, j] = max(dp[i-1, j], dp[i, j], dp[i-1, j-1] + h[i, j])
