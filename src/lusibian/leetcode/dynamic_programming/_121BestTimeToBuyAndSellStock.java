@@ -1,6 +1,6 @@
-package lusibian.leetcode.array;
+package lusibian.leetcode.dynamic_programming;
 
-public class BestTimeToBuyAndSellStock {
+public class _121BestTimeToBuyAndSellStock {
     public int maxProfit(int[] prices) {
         if(prices.length == 0){
             return 0;
