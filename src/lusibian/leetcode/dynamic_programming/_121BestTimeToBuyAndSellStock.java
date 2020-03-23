@@ -22,6 +22,7 @@ public class _121BestTimeToBuyAndSellStock {
     //  dp[i][k][0] = max(dp[i - 1][k][0], dp[i - 1][k][1] + price[i])
     //  dp[i][k][1] = max(dp[i - 1][k][1], dp[i - 1][k - 1][0] - price[i])
     //  i代表当前天数，k代表最大交易次数，0、1分别代表当前未持有或持有股票
+    //
     // 对本题，k为1，状态转移方程简化：
     //  dp[i][0] = max(dp[i - 1][0], dp[i - 1][1] + price[i])
     //  dp[i][1] = max(dp[i - 1][1], - price[i])
