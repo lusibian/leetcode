@@ -52,8 +52,6 @@ public class POJ2373DividingThePath {
                 }
                 if (!deque.isEmpty()) {
                     minSprinklersCount[i] = minSprinklersCount[deque.getFirst()] + 1;
-                } else {
-                    minSprinklersCount[i] = -1;
                 }
             }
         }
